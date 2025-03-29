@@ -1,0 +1,73 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Post;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class PostController extends Controller
+{
+    // public function create()
+    // {
+    //     return view('post.create');
+    // }
+    // public function store(Request $request)
+    // {
+    //     $validated = $request->validate([
+    //         'content' => 'required|max:500'
+    //     ], [
+    //         'content.required' => '本文は必須項目です。',
+    //         'content.max' => '本文は500文字以内で入力してください。',
+    //     ]);
+
+    //     $validated['user_id'] = Auth::id();
+    //     // バリデーションを通過したデータを使って新しい投稿を作成
+    //     $post = Post::create($validated);
+
+    //     // $post = Post::create([
+    //     //     'user_id' => Auth::id(),
+    //     //     'content' => $request->content
+    //     // ]);
+    //     $request->session()->flash('message', '保存しました');
+    //     return back();
+    // }
+    // public function index()
+    // {
+    //     $posts = Post::with('user')->get();  // 投稿とそのユーザー情報を一度に取得
+    //     // $posts = Post::all();
+    //     return view('post.index', compact('posts'));
+    // }
+    // public function show(Post $post)
+    // {
+    //     return view('post.show', compact('post'));
+    // }
+    // public function edit(Post $post)
+    // {
+    //     return view('post.edit', compact('post'));
+    // }
+    // public function update(Request $request, Post $post)
+    // {
+    //     $validated = $request->validate([
+    //         'content' => 'required|max:500'
+    //     ], [
+    //         'content.required' => '本文は必須項目です。',
+    //         'content.max' => '本文は500文字以内で入力してください。',
+    //     ]);
+
+    //     $validated['user_id'] = Auth::id();
+    //     $post->update($validated);
+
+    //     $request->session()->flash('message', '更新しました');
+    //     return back();
+    // }
+    // public function delete(Post $post)
+    // {
+    //     return view('post.delete', compact('post'));
+    // }
+    // public function destroy(Post $post)
+    // {
+    //     $post->delete();
+    //     return redirect()->route('post.index');
+    // }
+}

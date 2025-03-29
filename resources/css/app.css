@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-image: url('/images/evening.webp');
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    /* background-position: center; */
+    height: 100vh; /* 画面全体の高さに設定 */
+}
