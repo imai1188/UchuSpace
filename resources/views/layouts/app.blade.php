@@ -9,22 +9,29 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700&family=Orbitron:wght@500&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Major+Mono+Display&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
 
-<body class="font-sans antialiased">
+<body class="stars font-space 1p antialiased {{ $bodyClass ?? '' }}">
+
     <div class="min-h-screen">
         @include('layouts.navigation')
 
         <!-- Page Heading -->
         @isset($header)
-            <header class="bg-gray-100 shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <header>
+                <div class="p-9 mb-4 rounded-x1">
+                    {{-- <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"> --}}
                     {{ $header }}
                 </div>
             </header>
@@ -34,6 +41,7 @@
         <main>
             {{ $slot }}
         </main>
+
     </div>
 </body>
 

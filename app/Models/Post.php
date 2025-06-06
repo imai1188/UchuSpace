@@ -13,6 +13,11 @@ class Post extends Model
     protected $fillable = [
         'user_id',
         'content',
+        'spotify_track_id',
+        'track_name',
+        'artist_name',
+        'preview_url',
+        'album_image_url',
     ];
     // usersテーブルとのリレーション(投稿（Post）をしたユーザー（User）を取得できるようにする)
     public function user()

@@ -21,3 +21,26 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# デバッグログ
+*.log
+*.sql
+*.sqlite
+*.lock
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+.DS_Store
+Thumbs.db
+
+*.bak
+*.tmp
+*.swp
+*.swo
+
+/public/hot
+/public/storage
+/public/vendor

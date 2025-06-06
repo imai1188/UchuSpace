@@ -1,11 +1,445 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* 全ページ共通 */
 body {
-    background-image: url('/images/evening.webp');
-    background-size: 100% auto;
-    background-repeat: repeat-y;
-    /* background-position: center; */
-    height: 100vh; /* 画面全体の高さに設定 */
+    background: linear-gradient(to bottom, #000005, #000010, #051228, #0b132f, #111131);
+    color: #27cfde; 
+    background-attachment: fixed; 
+}
+
+.glow-blue {
+    color: #00ccff; 
+    text-shadow: 0 0 5px #00ccff, 0 0 10px #00ccff;
+}
+
+.glow-navigation { 
+    color: #f672b4; 
+    text-shadow: 0 0 50px #e7fc2b, 0 0 20px #e7fd24; 
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.glow-navigation:hover {
+    color: #f672b4; 
+    text-shadow: 0 0 30px #aae1e1, 0 0 50px #3d07ef; 
+} 
+
+.planet-button {
+    width: 110px; 
+    height: 110px; 
+    display: flex; 
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    box-shadow:
+        0 0 8px #f384e8,      
+        0 0 10px #ed7fe2,    
+        0 0 30px #f5f23e, 
+        0 0 40px #fbf787;
+    transition:
+        box-shadow 0.6s cubic-bezier(0.25, 0.8, 0.25, 1),
+        transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1),
+        border 0.6s ease; 
+    cursor: pointer;
+    background: linear-gradient(to right bottom, #0d2562, #051228, #0b132f, #0b043a, #f450ba);
+}
+
+.planet-button:hover {
+    box-shadow: 0 0 30px #f685eb, 0 0 40px #ebe9a5;
+    transform: translateX(1px);
+}
+
+.planet-button:focus {
+    outline: none; 
+    box-shadow:
+      inset 0.3rem 0.3rem 0.4rem rgba(255, 255, 255, 0.4), 
+      0 0 3rem rgba(238, 91, 177, 0.3) rgba(241, 239, 125, 0.3); 
+      transform: translateY(1px);
+}
+/* 投稿一覧画面 */
+.neon-box {
+    border: 5px solid #00ccff;
+    border-radius: 5rem 5rem 5rem 5rem; 
+    box-shadow:
+    0 0 8px #00ccff,      
+    0 0 5px #8a2be2,     
+    0 0 40px #ff69b4;      
+    transition: box-shadow 0.1s ease; 
+}
+
+.neon-box:hover {
+    box-shadow: 0 0 20px #ff69b4, 0 0 20px #5bd9f8, 0 0 40px #ff69b4;
+} 
+.floating-glow {
+    position: relative;
+    z-index: -1;
+}
+
+.glow-wrap {
+    position: relative;
+    z-index: 0;
+} 
+
+.glow-icon {
+    box-shadow: 0 0 5px #7489f1, 
+                0 0 10px #f7fd79,   
+                0 0 30px #448bee,
+                0 0 40px #1b74f0;
+}
+
+.floating {
+    animation: float 5s ease-in-out infinite,
+               rotate 3s linear infinite alternate,
+               scale 4s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px); 
+    }
+}
+
+.post-floating {
+    animation: float-text 4s ease-in-out infinite;
+    margin-left: 1.5rem; 
+}
+
+@keyframes float-text {
+    0%, 100% {
+        transform: translate(0, 0); 
+    }
+    50% {
+        transform: translate(3px, -8px); 
+    }
+}
+
+.spotify-pink {
+    color: #FF69B4; 
+    text-shadow: 0 0 5px #FF69B4, 0 0 10px #FF69B4;
+}
+
+.spotify-pink:hover {
+    color: #00FF00; 
+    text-shadow: 0 0 30px #00FF00, 0 0 15px #00FF00; 
+}
+
+.neon-separator {
+    background: linear-gradient(90deg, #000044 0%, #FF69B4 50%, #000044 100%);
+    box-shadow: 0 0 30px #f94aa2; 
+}
+
+.glow-bio {
+    color: hsl(221, 54%, 84%);
+    text-shadow: 0 0 12px rgba(252, 254, 252, 0.8), 0 0 5px rgba(227, 237, 156, 0.5);
+    animation: glow 2s ease-in-out infinite;
+}
+
+.trash-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px; 
+    height: 70px; 
+    background-color: transparent; 
+    color: #e2fc3b;
+    font-size: 1.5rem;
+    text-shadow: #FFC0CB; 
+    box-shadow: #FFC0CB; 
+    cursor: pointer;
+}
+
+.trash-icon:hover {
+    background-color: #e2fc3b;
+    color: #FF69B4;
+    box-shadow: 0 0 0.8em white, 0 0 1.5em #e2fc3b;
+    border-radius: 50%; 
+    transition: all 0.9s, border-radius 0.9s ease-in-out; 
+}
+
+/* 登録・更新・削除画面 */
+.glow-deep-blue {
+    box-shadow: 0 0 10px #335fe2, 0 0 10px #335fe2, 0 0 5px #335fe2; 
+}
+
+.glow-red {
+    color: #FF4500; 
+    text-shadow: 0 0 5px #FF4500, 0 0 10px #FF4500;
+}
+
+.delete-button {
+    background-color: #222;
+    color: #fa4e30; 
+    text-shadow: 0 0 1px #fa4e30, 0 0 2px #fa4e30;
+    border: 2px solid #fa4e30;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.delete-button:hover {
+    color: #fa4e30;
+    border-color: #fa4e30;
+    box-shadow: 0 0 15px #fa4e30, 0 0 30px #fa4e30;
+}
+
+.edit-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px; 
+    height: 70px; 
+    background-color: transparent; 
+    color: #b2ff69;
+    font-size: 1.5rem;
+    text-shadow: #b2ff69; 
+    box-shadow: #b2ff69; 
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: #b2ff69;
+    color: #FF69B4;
+    box-shadow: 0 0 0.8em white, 0 0 1.5em #b2ff69;
+    border-radius: 50%; 
+    transition: all 0.9s, border-radius 0.9s ease-in-out; 
+}
+
+.cancel-button {
+    background-color: #222;
+    color: #888; 
+    border: 2px solid #888;
+    box-shadow: 0 0 5px #888, 0 0 10px #888;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.cancel-button:hover {
+    color: #AAA;
+    border-color: #AAA;
+    box-shadow: 0 0 8px #AAA, 0 0 15px #AAA;
+}
+
+.post-button {
+    box-shadow: 0 0 10px #335fe2, 0 0 10px #335fe2, 0 0 5px #335fe2; 
+    background-color: #222; 
+    color: #00ccff; 
+    border: 2px solid #335fe2; 
+    box-shadow: 0 0 10px #335fe2, 0 0 20px #335fe2s;  
+    padding: 0.75rem 1.5rem; 
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.post-button:hover {
+    color: #f672b4; 
+    border-color: #f672b4; 
+    box-shadow: 0 0 10px #f672b4, 0 0 5px #feef9f, 0 0 30px #f195c3; 
+}
+
+.flash-message {
+    font-family: 'Press Start 2P', cursive;
+    color: #eb0eac; 
+    text-shadow: 0 0 5px #00ccff, 0 0 10px #00ccff 0 0 50px #0026ff;
+    opacity: 0.8;
+}
+
+/* profile画面 */
+.glow-blue-green {
+    box-shadow:0 0 8px #4ef2f5,      
+               0 0 25px #9df16c,   
+               0 0 35px #2b79f6;  
+}
+
+.glow-blue-green:focus {
+    box-shadow:0 0 15px #b4eff8,  
+               0 0 15px #a0fca0, 
+               0 0 20px #8932f4, 
+               0 0 25px #4ef5a4,
+               0 0 30px #2e71ec !important;   
+}
+
+.select-file-button {
+    background: linear-gradient(145deg, #0f172a, #1e293b); 
+    color: #e0f2fe !important; 
+    box-shadow: 
+        0 0 8px #4ef2f5,
+        0 0 25px #9df16c,
+        0 0 35px #2b79f6;
+    padding: 0.4rem 1.2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.select-file-button:hover {
+    background: linear-gradient(145deg, #1e3a8a, #4c1d95); 
+    color: #f0f9ff; 
+    box-shadow: 
+        0 0 10px #7dd3fc,
+        0 0 30px #bbf7d0,
+        0 0 40px #818cf8;
+}
+
+.profile-button {
+    background: linear-gradient(145deg, #0f172a, #1e293b); 
+    color: #e0f2fe !important; 
+    box-shadow: 
+        0 0 8px #4ef2f5,
+        0 0 25px #9df16c,
+        0 0 35px #2b79f6;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.profile-button:hover {
+    background: linear-gradient(145deg, #1e3a8a, #4c1d95); 
+    color: #f0f9ff; 
+    box-shadow: 
+        0 0 10px #7dd3fc,
+        0 0 30px #bbf7d0,
+        0 0 40px #818cf8;
+}
+
+.glow-green {
+    box-shadow: 0 0 10px #00ffcc,     
+                0 0 15px #00ffcc,     
+                0 0 20px #0abc8a,     
+                0 0 20px #0abc8a;    
+}
+
+.glow-green-text-shadow {
+    text-shadow: 0 0 15px rgba(0, 255, 100, 0.9), 
+                 0 0 30px rgba(0, 255, 100, 0.7),  
+                 0 0 45px rgba(0, 255, 100, 0.5);  
+}
+
+.hexagon-shadow {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: flicker 5s infinite alternate;
+    filter:
+    drop-shadow(0 0 4px #4ef5a4)     
+    drop-shadow(0 0 8px #a5ffcb)     
+    drop-shadow(0 0 20px #8257e5); 
+  } 
+
+  @keyframes flicker {
+    0%, 100% {
+      filter:
+        drop-shadow(0 0 4px #4ef5a4)
+        drop-shadow(0 0 8px #a5ffcb)
+        drop-shadow(0 0 28px #8257e5);
+    }
+    50% {
+      filter:
+        drop-shadow(0 0 6px #728af5)
+        drop-shadow(0 0 20px #5722dc);
+    }
+  }
+  
+  .hexagon-inner {
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(
+  30% 0%, 70% 0%,
+  100% 30%, 100% 70%,
+  70% 100%, 30% 100%,
+  0% 70%, 0% 30%
+);
+    border: 2px solid #4ef5a4;
+    overflow: hidden;
+  }
+
+  .hexagon-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+#three-index {
+    top: 20px;
+    left: 140px;
+    width: 150px;
+    height: 150px;
+    z-index: 10;
+}
+
+.centered-message {
+    position: relative;
+    bottom: 300px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    color: #fff;
+    text-align: center;
+    pointer-events: none;
+}
+
+.welcome-msg {
+    color: #ff115c;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 0 0 10px #0b19e3, 0 0 30px #1449e9, 0 0 50px #0026ff;
+}
+
+.spacesuit {
+    color: #e9f00f95;
+    text-shadow: 
+        0 0 10px #1c19e7,
+        0 0 20px #f8f5f8,
+        0 0 30px #0703e7;
+    opacity: 0.8;
+}
+ 
+.spacesuit-floating {
+    animation: float-astronaut 9s ease-in-out infinite;
+    margin-left: 1.5rem;
+    display: inline-block;
+  } 
+
+  @keyframes swing-astronaut {
+    0% { transform: translateX(0) rotate(0deg); }
+    25% { transform: translateX(4px) rotate(4deg); }
+    50% { transform: translateX(0) rotate(0deg); }
+    75% { transform: translateX(-4px) rotate(-4deg); }
+    100% { transform: translateX(0) rotate(0deg); }
+  }
+  
+  .spacesuit-floating {
+    animation: swing-astronaut 3s ease-in-out infinite;
+    margin-left: 1.5rem;
+    display: inline-block;
+  }
+
+#particle-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* navより後ろ */
+    pointer-events: none; /* マウスイベントを透過 */
 }
