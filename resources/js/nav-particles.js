@@ -51,7 +51,7 @@ function init() {
     geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
     const material = new THREE.PointsMaterial({
-        size: 2.1,
+        size: 2,
         map: particleTexture,
         transparent: true,
         depthWrite: false,

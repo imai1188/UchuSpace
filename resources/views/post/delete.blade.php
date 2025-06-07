@@ -11,14 +11,13 @@
         </p>
 
         {{-- 削除対象の投稿を表示する --}}
-        <div class="mt-4 p-4 bg-transparent border-2 border-neon-blue text-cyan-300 glow-deep-blue">
+        <div class="mt-4 p-4 bg-transparent border-2 border-neon-blue glow-deep-blue">
             <p><strong>投稿者:</strong> {{ $post->user->name }}</p>
             <p class="mt-2"><strong>投稿内容:</strong> {{ $post->content }}</p>
-            <p class="mt-2 text-cyan-300"><strong>投稿日:</strong> {{ $post->created_at }}</p>
+            <p class="mt-2"><strong>投稿日:</strong> {{ $post->created_at }}</p>
         </div>
 
         <div class="mt-6 flex gap-4">
-            {{-- 削除ボタン（実際に削除を実行する） --}}
             <form method="POST" action="{{ route('post.destroy', $post) }}">
                 @csrf
                 @method('DELETE')

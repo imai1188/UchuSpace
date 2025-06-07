@@ -18,13 +18,13 @@
                 <div class="md:text-left floating-glow" style="--i: {{ $loop->index }}">
                     <!-- アイコンと名前 -->
                     <div class="flex items-center space-x-1 pl-4">
-                        <!-- アイコン表示 -->
+                        <!-- アイコン -->
                         <img src="{{ $post->user->icon ? Storage::url($post->user->icon) : asset('images/kanu.png') }}"
                             class="w-12 h-12 rounded-full object-cover glow-icon">
                         <!-- 名前（ホバーでメッセージ表示） -->
                         <h2 class="p-4 text-lg font-semibold relative group">
                             {{ $post->user->name }}
-                            <!-- ホバー時に表示する一言メッセージ -->
+                            <!-- 一言メッセージ -->
                             <span
                                 class="absolute left-8 bottom-12 mb-2 hidden group-hover:block bg-transparent text-[#65ecb1] text-sm rounded-lg shadow-md whitespace-nowrap glow-bio">
                                 {{ $post->user->bio }}
@@ -32,7 +32,6 @@
                         </h2>
                     </div>
 
-                    {{-- <hr class="w-full"> --}}
                     <div class="neon-separator w-full h-1 my-4"></div>
                     <div class="pl-4">
                         <p class="mt-4 p-4">

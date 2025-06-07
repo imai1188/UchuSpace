@@ -5,14 +5,13 @@ let scene, camera, renderer, pointLight, controls, ballMesh;
 
 window.addEventListener("load", () => {
     Promise.all([
-        loadTexture("/textures/earth_night.jpg"),  // 地球のテクスチャ
-        loadTexture("/textures/1.png")             // パーティクルのテクスチャ
+        loadTexture("/textures/earth_night.jpg"),  
+        loadTexture("/textures/1.png")
     ]).then(([earthTexture, particleTexture]) => {
         init(earthTexture, particleTexture);
     });
 });
 
-// テクスチャ読み込みをPromise化
 function loadTexture(path) {
     return new Promise((resolve) => {
         new THREE.TextureLoader().load(path, (texture) => {
@@ -58,7 +57,7 @@ function init(earthTexture, particleTexture) {
 
     // パーティクル
     const particlesGeometry = new THREE.BufferGeometry();
-    const count = 150;
+    const count = 170;
     const positionArray = new Float32Array(count * 3);
     const colorArray = new Float32Array(count * 3);
 
@@ -100,7 +99,7 @@ function init(earthTexture, particleTexture) {
     particlesGeometry.setAttribute("color", new THREE.BufferAttribute(colorArray, 3));
 
     const pointMaterial = new THREE.PointsMaterial({
-        size: 3.9,
+        size: 4,
         sizeAttenuation: false,
         depthTest: true,
         alphaMap: particleTexture,

@@ -51,7 +51,7 @@
                             <label for="bio"
                                 class="font-semibold mt-4 text-white glow-green-text-shadow mb-3">Message</label>
                             <textarea name="bio" id="bio" rows="3"
-                                class="w-full py-2 px-3 rounded-md glow-blue-green bg-transparent focus:ring-green-700 focus:ring-2 focus:ring-offset-0 focus:border-transparent text-white glow-green-text-shadow">{{ old('bio', auth()->user()->bio) }}</textarea>
+                                class="w-full py-2 px-3 rounded-md glow-blue-green bg-transparent focus:ring-green-700 focus:ring-2 focus:ring-offset-0 focus:border-transparent text-white glow-green-text-shadow placeholder-white" placeholder="ここに好きなメッセージを書いてください！">{{ old('bio', auth()->user()->bio) }}</textarea>
                         </div>
 
                         <x-primary-button class="mt-6 glow-blue-green profile-button">

@@ -7,13 +7,13 @@
 /* 全ページ共通 */
 body {
     background: linear-gradient(to bottom, #000005, #000010, #051228, #0b132f, #111131);
-    color: #27cfde; 
+    color: #529ffc; 
     background-attachment: fixed; 
 }
 
 .glow-blue {
-    color: #00ccff; 
-    text-shadow: 0 0 5px #00ccff, 0 0 10px #00ccff;
+    color: #24abf9; 
+    text-shadow: 0 0 5px #24abf9, 0 0 10px #24abf9;
 }
 
 .glow-navigation { 
@@ -61,19 +61,38 @@ body {
       0 0 3rem rgba(238, 91, 177, 0.3) rgba(241, 239, 125, 0.3); 
       transform: translateY(1px);
 }
+
+#particle-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* navより後ろ */
+    pointer-events: none; /* マウスイベントを透過 */
+}
+
 /* 投稿一覧画面 */
+#three-index {
+    top: 20px;
+    left: 140px;
+    width: 150px;
+    height: 150px;
+    z-index: 10;
+}
+
 .neon-box {
-    border: 5px solid #00ccff;
+    border: 4px solid #24abf9;
     border-radius: 5rem 5rem 5rem 5rem; 
     box-shadow:
-    0 0 8px #00ccff,      
+    0 0 8px #24abf9,      
     0 0 5px #8a2be2,     
     0 0 40px #ff69b4;      
     transition: box-shadow 0.1s ease; 
 }
 
 .neon-box:hover {
-    box-shadow: 0 0 20px #ff69b4, 0 0 20px #5bd9f8, 0 0 40px #ff69b4;
+    box-shadow: 0 0 20px #ff69b4, 0 0 20px #32d0f8, 0 0 40px #fb4fa5;
 } 
 .floating-glow {
     position: relative;
@@ -86,9 +105,9 @@ body {
 } 
 
 .glow-icon {
-    box-shadow: 0 0 5px #7489f1, 
-                0 0 10px #f7fd79,   
-                0 0 30px #448bee,
+    box-shadow: 0 0 5px #539df7, 
+                0 0 5px #f7fd88,   
+                0 0 30px #2082f9,
                 0 0 40px #1b74f0;
 }
 
@@ -235,7 +254,7 @@ body {
 .post-button {
     box-shadow: 0 0 10px #335fe2, 0 0 10px #335fe2, 0 0 5px #335fe2; 
     background-color: #222; 
-    color: #00ccff; 
+    color: #6aacfd; 
     border: 2px solid #335fe2; 
     box-shadow: 0 0 10px #335fe2, 0 0 20px #335fe2s;  
     padding: 0.75rem 1.5rem; 
@@ -380,14 +399,6 @@ body {
     object-fit: cover;
   }
 
-#three-index {
-    top: 20px;
-    left: 140px;
-    width: 150px;
-    height: 150px;
-    z-index: 10;
-}
-
 .centered-message {
     position: relative;
     bottom: 300px; 
@@ -399,6 +410,7 @@ body {
     pointer-events: none;
 }
 
+/* WelcomePage */
 .welcome-msg {
     color: #ff115c;
     font-family: 'Press Start 2P', cursive;
@@ -427,19 +439,9 @@ body {
     75% { transform: translateX(-4px) rotate(-4deg); }
     100% { transform: translateX(0) rotate(0deg); }
   }
-  
-  .spacesuit-floating {
+
+.spacesuit-floating {
     animation: swing-astronaut 3s ease-in-out infinite;
     margin-left: 1.5rem;
     display: inline-block;
   }
-
-#particle-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1; /* navより後ろ */
-    pointer-events: none; /* マウスイベントを透過 */
-}
